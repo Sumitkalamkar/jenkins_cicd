@@ -8,7 +8,10 @@ def create_app():
     @app.route('/')
     def home():
         print("inside home function")
-        return 'hi i am sumit kalamkar ai and devops engineer welcome to my cicd pipeline.'
+        return (
+        "hi i am sumit kalamkar ai and devops engineer "
+        "welcome to my cicd pipeline."
+        )
 
     @app.route('/test')
     def test():
