@@ -16,8 +16,8 @@ def test_home(client):
     response = client.get('/')
     assert response.status_code == 200
     expected_text = (
-    "hi i am sumit kalamkar ai and devops engineer "
-    "welcome to my cicd pipeline."
+        "hi i am sumit kalamkar ai and devops engineer "
+        "welcome to my cicd pipeline."
     )
     assert expected_text.encode() in response.data
 
