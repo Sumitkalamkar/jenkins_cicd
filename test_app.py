@@ -1,0 +1,40 @@
+import pytest
+from app import create_app
+
+
+@pytest.fixture
+def app():
+    return create_app()
+
+
+@pytest.fixture
+def client(app):
+    return app.test_client()
+
+
+def test_home(client):
+    response = client.get('/')
+    assert response.status_code == 200
+    expected_text = 'Hurray'
+    assert expected_text.encode() in response.data
+
+
+def test_test(client):
+    response = client.get('/test')
+    assert response.status_code == 200
+    expected_text = '11'
+    assert expected_text.encode() in response.data
+
+
+def test_test1(client):
+    response = client.get('/test2')
+    assert response.status_code == 200
+    expected_text = 'test'
+    assert expected_text.encode() in response.data
+
+
+def test_test2(client):
+    response = client.get('/test3')
+    assert response.status_code == 200
+    expected_text = 'test'
+    assert expected_text.encode() in response.data
