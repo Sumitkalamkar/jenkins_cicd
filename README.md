@@ -9,7 +9,7 @@
 ## Pipeline Overview
 
 
-![Flask App CI/CD Pipeline](./pipeline.png)
+![Flask App CI/CD Pipeline](./Screenshot 2026-04-25 131134.png)
 
 
 The pipeline runs 3 jobs in sequence:
