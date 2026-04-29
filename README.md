@@ -8,6 +8,10 @@
 
 ## Pipeline Overview
 
+
+![Flask App CI/CD Pipeline](./pipeline.png)
+
+
 The pipeline runs 3 jobs in sequence:
 
 ```
