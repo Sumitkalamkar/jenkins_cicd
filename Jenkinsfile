@@ -9,17 +9,11 @@ pipeline {
             }
         }
 
-        stage('Test in Python Container') {
-            agent {
-                docker {
-                    image 'python:3.9'
-                }
-            }
+        stage('Test') {
             steps {
                 sh '''
-                pip install -r requirements.txt
-                pytest
-                flake8 .
+                docker run --rm -v $(pwd):/app -w /app python:3.9 \
+                sh -c "pip install -r requirements.txt && pytest && flake8 ."
                 '''
             }
         }
