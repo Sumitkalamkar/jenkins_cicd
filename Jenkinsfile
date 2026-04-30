@@ -9,18 +9,15 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh '''
-                python3 --version || true
-                pip3 install -r requirements.txt
-                '''
+        stage('Test in Python Container') {
+            agent {
+                docker {
+                    image 'python:3.9'
+                }
             }
-        }
-
-        stage('Test') {
             steps {
                 sh '''
+                pip install -r requirements.txt
                 pytest
                 flake8 .
                 '''
