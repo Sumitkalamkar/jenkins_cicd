@@ -10,17 +10,10 @@ pipeline {
         }
 
         stage('Test') {
-            agent {
-                docker {
-                    image 'python:3.10'
-                }
-            }
             steps {
-                sh '''
-                pip install -r requirements.txt
-                pytest
-                flake8 .
-                '''
+                sh 'pip install -r requirements.txt --break-system-packages'
+                sh 'pytest test_app.py -v'
+                sh 'flake8 . --max-line-length=120 --exclude=.git'
             }
         }
 
@@ -35,6 +28,16 @@ pipeline {
                 sh 'docker rm -f webos || true'
                 sh 'docker run -dit --name webos -p 80:80 mygfgimg'
             }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check logs above.'
         }
     }
 }
