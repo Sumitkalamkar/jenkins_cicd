@@ -8,28 +8,28 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh '''
-                    docker run --rm \
-                    -v $WORKSPACE:/app \
-                    -w /app \
-                    python:3.9 \
+                sh """
+                    docker run --rm \\
+                    -v \$WORKSPACE:/app \\
+                    -w /app \\
+                    python:3.9 \\
                     sh -c 'pip install -r requirements.txt && pytest && flake8 .'
-                '''
+                """
             }
         }
         stage('Build Docker Image') {
             steps {
-                sh '''
+                sh """
                     docker build -t mygfgimg .
-                '''
+                """
             }
         }
         stage('Deploy') {
             steps {
-                sh '''
+                sh """
                     docker rm -f webos || true
                     docker run -dit --name webos -p 80:80 mygfgimg
-                '''
+                """
             }
         }
     }
