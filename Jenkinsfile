@@ -6,6 +6,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Sumitkalamkar/jenkins_cicd.git'
             }
         }
+        stage('Debug') {
+            steps {
+                sh 'echo "Workspace = $WORKSPACE"'
+                sh 'ls -la $WORKSPACE'
+            }
+        }
         stage('Test') {
             steps {
                 sh 'docker run --rm -v $WORKSPACE:/app -w /app python:3.9 pip install -r requirements.txt'
