@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/var/jenkins_home/.local/bin:${env.PATH}"
+    }
+
     stages {
 
         stage('Clone Code') {
