@@ -5,15 +5,25 @@ on:
     branches: ["main"]
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
     - name: Show files
       run: ls -la
+
+    - name: Build step
+      run: echo "Building project..."
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -23,17 +33,15 @@ jobs:
     - name: Install dependencies
       run: |
         if [ -f requirements.txt ]; then
-          echo "Installing dependencies..."
           pip install -r requirements.txt
-        else
-          echo "No requirements.txt found"
         fi
 
     - name: Run tests
-      run: |
-        if [ -f test_app.py ]; then
-          python -m pytest
-        else
-          echo "No test found"
-        fi
+      run: python -m pytest
 
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy step
+      run: echo "Deploying application..."
