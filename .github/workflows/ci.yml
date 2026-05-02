@@ -43,5 +43,29 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy step
-      run: echo "Deploying application..."
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script:
+           cd /home/ec2-user
+
+           if [ -d "jenkins_cicd" ]; then
+              cd jenkins_cicd && git pull
+           else
+              git clone https://github.com/Sumitkalamkar/jenkins_cicd.git
+              cd jenkins_cicd
+           fi
+
+           docker stop my-app || true
+           docker rm my-app || true
+
+           docker build -t my-app .
+           docker run -d -p 5000:5000 --name my-app my-app
+           
+
+
+
+           
