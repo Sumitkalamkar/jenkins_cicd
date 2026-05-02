@@ -1,0 +1,57 @@
+name: CICD Pipeline 
+on:
+   push:
+       branches: ["main"]
+
+jobs:
+     build:
+         runs-on: ubuntu-latest
+
+         steps:
+         -name: Checkout code 
+          uses: actions/checkout@v4
+
+         -name: Show files
+          run: ls -la
+
+         -name: Set up Python
+          uses: actions/python@v5
+          with:
+              python-version: "3.10"
+
+         -name: Install dependencies 
+          run: |
+             if [ -f requirements.txt]; then
+                echo "Installing dependencies..."
+                pip install -r requirements.txt
+             else
+                echo "No requirenments.txt found"
+             fi
+             
+          -name: Run tests 
+           run: |
+             if [ -f test_app.py ];then
+                python -m pytest
+
+             else
+                echo "No test found"
+             fi 
+
+
+           -name: run app
+            run: |
+                if [  -f app.py ]; then 
+                    python app.py
+
+                else 
+                    echo "No app.py found"
+                fi 
+            
+             
+
+
+
+
+           
+          
+               
