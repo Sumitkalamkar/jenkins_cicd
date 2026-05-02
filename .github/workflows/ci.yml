@@ -37,10 +37,3 @@ jobs:
           echo "No test found"
         fi
 
-    - name: Run app
-      run: |
-        if [ -f app.py ]; then
-          python app.py
-        else
-          echo "No app.py found"
-        fi
