@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'worker' }
 
     environment {
         PATH = "/var/jenkins_home/.local/bin:${env.PATH}"
