@@ -10,7 +10,7 @@ def create_app():
         print("inside home function")
         return (
             "hi i am sumit kalamkar ai and devops engineer, and i am learning devops"
-            "welcome to my cicd pipeline build using github actions"
+            "welcome to my application, build with cicd pipeline."
         )
 
     @app.route('/test')
