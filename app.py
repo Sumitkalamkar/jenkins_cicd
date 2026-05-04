@@ -25,7 +25,7 @@ def create_app():
     def test2():
         return "test 1234"
 
-    return app
+    return "PR test change"
 
 
 if __name__ == '__main__':
