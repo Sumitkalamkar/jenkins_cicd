@@ -60,20 +60,31 @@ jobs:
 
       - name: Check Quality Gate
         run: |
-          STATUS="PENDING"
+          echo "Checking SonarQube Quality Gate..."
 
-          while [ "$STATUS" = "PENDING" ]; do
-            sleep 5
+          for i in {1..12}; do
             STATUS=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: \
             "${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=sumit_github_cicd" \
-            | grep -o '"status":"[^"]*"' | cut -d'"' -f4)
+            | python3 -c "import sys, json; print(json.load(sys.stdin)['projectStatus']['status'])")
+
             echo "Quality Gate Status: $STATUS"
+
+            if [ "$STATUS" = "OK" ]; then
+              echo "Quality Gate PASSED"
+              exit 0
+            fi
+
+            if [ "$STATUS" = "ERROR" ]; then
+              echo "Quality Gate FAILED"
+              exit 1
+            fi
+
+            echo "Waiting for analysis..."
+            sleep 5
           done
 
-          if [ "$STATUS" != "OK" ]; then
-            echo "Quality Gate failed"
-            exit 1
-          fi
+          echo "Timeout waiting for Quality Gate"
+          exit 1
 
   deploy:
     needs: sonar
