@@ -18,8 +18,28 @@ jobs:
       - name: Build step
         run: echo "Building project..."
 
-  sonar:
+  test:
     needs: build
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check Python
+        run: python3 --version
+
+      - name: Install dependencies
+        run: |
+          pip3 install -r requirements.txt || true
+          pip3 install pytest pytest-cov coverage
+
+      - name: Run tests with coverage
+        run: |
+          pytest --cov=. --cov-report=xml
+
+  sonar:
+    needs: test
     runs-on: self-hosted
 
     steps:
@@ -35,29 +55,28 @@ jobs:
             -Dsonar.projectKey=sumit_github_cicd \
             -Dsonar.sources=. \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.python.coverage.reportPaths=coverage.xml
 
-  test:
-    needs: sonar
-    runs-on: self-hosted
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check Python
-        run: python3 --version
-
-      - name: Install dependencies
+      - name: Check Quality Gate
         run: |
-          if [ -f requirements.txt ]; then
-            pip3 install -r requirements.txt
+          STATUS="PENDING"
+
+          while [ "$STATUS" = "PENDING" ]; do
+            sleep 5
+            STATUS=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: \
+            "${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=sumit_github_cicd" \
+            | grep -o '"status":"[^"]*"' | cut -d'"' -f4)
+            echo "Quality Gate Status: $STATUS"
+          done
+
+          if [ "$STATUS" != "OK" ]; then
+            echo "Quality Gate failed"
+            exit 1
           fi
 
-      - name: Run tests
-        run: python3 -m pytest
-
   deploy:
-    needs: test
+    needs: sonar
     runs-on: self-hosted
 
     steps:
