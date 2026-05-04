@@ -18,7 +18,7 @@ def test_home(client):
 
     expected_text = (
        "hi i am sumit kalamkar ai and devops engineer, and i am learning devops,"
-       "welcome to my application with complete cicd pipeline."
+       "welcome to my application"
     )
 
     assert expected_text.encode() in response.data
