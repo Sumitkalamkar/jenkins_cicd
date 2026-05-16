@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'worker' }
+    agent { label 'static-worker' }
 
     tools {
         sonarQube 'sonar-scanner'
