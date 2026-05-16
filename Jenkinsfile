@@ -1,10 +1,6 @@
 pipeline {
     agent { label 'static-worker' }
 
-    tools {
-        sonarQube 'sonar-scanner'
-    }
-
     environment {
         PATH = "/home/ec2-user/.local/bin:${env.PATH}"
     }
