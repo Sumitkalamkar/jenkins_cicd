@@ -1,8 +1,9 @@
 pipeline {
-    agent { label 'static-worker' }
+    agent { label 'worker' }
 
     environment {
         PATH = "/home/ec2-user/.local/bin:${env.PATH}"
+        SCANNER_HOME = tool 'sonar-scanner'
     }
 
     stages {
@@ -36,7 +37,13 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh 'sonar-scanner'
+                    sh '''
+                    $SCANNER_HOME/bin/sonar-scanner \
+                    -Dsonar.projectKey=jenkins-cicd \
+                    -Dsonar.projectName=jenkins-cicd \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=http://13.233.77.203:9000
+                    '''
                 }
             }
         }
