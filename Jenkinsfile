@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'worker' }
+    agent { label 'static-worker' }
 
     environment {
         PATH = "/home/ec2-user/.local/bin:${env.PATH}"
