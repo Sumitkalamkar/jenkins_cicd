@@ -3,7 +3,7 @@ pipeline {
     agent {
         docker {
             image 'sumit1418/sumit-jenkins-agent:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
