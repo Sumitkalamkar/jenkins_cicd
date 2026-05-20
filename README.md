@@ -390,7 +390,7 @@ Built while completing the full **GeeksForGeeks DevOps Course**. Each tool was l
 
 ### SonarQube Dashboard
 <!-- Upload your screenshot to repo root and rename to: sonarqube.png -->
-![SonarQube Dashboard](sonarqube 2.png)
+![SonarQube Dashboard](sonarqube%202.png)
 
 ### GitHub Actions — CI Passing
 <!-- Upload your screenshot to repo root and rename to: github-actions.png -->
