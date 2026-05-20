@@ -384,17 +384,13 @@ Built while completing the full **GeeksForGeeks DevOps Course**. Each tool was l
 ### Jenkins Build Pipeline View
 ![Jenkins Build Pipeline](jenkins%20pipe.png)
 
-### Jenkins Job Console Output
-<!-- Upload your screenshot to repo root and rename to: jenkins-console.png -->
-![Jenkins Console Output](jenkins-console.png)
-
 ### Dynamic EC2 Agent — Proof of Execution
 <!-- Upload your screenshot to repo root and rename to: ec2-agent.png -->
 ![Dynamic EC2 Agent](ec2-agent.png)
 
 ### SonarQube Dashboard
 <!-- Upload your screenshot to repo root and rename to: sonarqube.png -->
-![SonarQube Dashboard](sonarqube.png)
+![SonarQube Dashboard](sonarqube 2.png)
 
 ### GitHub Actions — CI Passing
 <!-- Upload your screenshot to repo root and rename to: github-actions.png -->
