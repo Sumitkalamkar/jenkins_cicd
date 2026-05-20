@@ -379,6 +379,39 @@ Built while completing the full **GeeksForGeeks DevOps Course**. Each tool was l
 
 ---
 
+## Screenshots
+
+### Jenkins Build Pipeline View
+<!-- Take a screenshot of your Jenkins Build Pipeline Plugin view showing all 3 jobs -->
+![Jenkins Build Pipeline](assets/screenshots/jenkins-pipeline-view.png)
+
+### Jenkins Job Console Output
+<!-- Take a screenshot of any job's console output showing a successful build -->
+![Jenkins Console Output](assets/screenshots/jenkins-console-output.png)
+
+### Dynamic EC2 Agent — Proof of Execution
+<!-- Take a screenshot of Jenkins console showing "Running on EC2 (aws-dynamic-agents)" -->
+![Dynamic EC2 Agent](assets/screenshots/ec2-dynamic-agent.png)
+
+### SonarQube Dashboard
+<!-- Take a screenshot of your SonarQube project dashboard showing analysis results -->
+![SonarQube Dashboard](assets/screenshots/sonarqube-dashboard.png)
+
+### GitHub Actions — CI Passing
+<!-- Take a screenshot of your GitHub Actions workflow showing green passing status -->
+![GitHub Actions](assets/screenshots/github-actions-passing.png)
+
+### Flask App Running
+<!-- Take a screenshot of the Flask app running in your browser on port 5000 -->
+![Flask App](assets/screenshots/flask-app-running.png)
+
+> **To add your screenshots:**
+> 1. Create a folder `assets/screenshots/` in this repo
+> 2. Upload each screenshot with the exact filename shown above
+> 3. Images will automatically render here on GitHub
+
+---
+
 ## Roadmap
 
 - [ ] Kubernetes deployment via Helm charts
