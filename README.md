@@ -386,7 +386,7 @@ Built while completing the full **GeeksForGeeks DevOps Course**. Each tool was l
 
 ### Dynamic EC2 Agent — Proof of Execution
 <!-- Upload your screenshot to repo root and rename to: ec2-agent.png -->
-![Dynamic EC2 Agent](ec2-agent.png)
+![Dynamic EC2 Agent](dynamic_ec2.png)
 
 ### SonarQube Dashboard
 <!-- Upload your screenshot to repo root and rename to: sonarqube.png -->
@@ -394,11 +394,8 @@ Built while completing the full **GeeksForGeeks DevOps Course**. Each tool was l
 
 ### GitHub Actions — CI Passing
 <!-- Upload your screenshot to repo root and rename to: github-actions.png -->
-![GitHub Actions](github-actions.png)
+![GitHub Actions](github_actions.png)
 
-### Flask App Running
-<!-- Upload your screenshot to repo root and rename to: flask-app.png -->
-![Flask App](flask-app.png)
 
 > **To add remaining screenshots:** Upload each image directly to the repo root with the exact filename shown above — same way you uploaded `jenkins pipe.png` and `pipeline.png`.
 
