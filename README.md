@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1> Flask App CI/CD Pipeline</h1>
+<h1>Flask App CI/CD Pipeline</h1>
 
 <p><strong>Jenkins · AWS EC2 Dynamic Agents · Docker · SonarQube · GitHub Actions</strong></p>
 
@@ -382,33 +382,29 @@ Built while completing the full **GeeksForGeeks DevOps Course**. Each tool was l
 ## Screenshots
 
 ### Jenkins Build Pipeline View
-<!-- Take a screenshot of your Jenkins Build Pipeline Plugin view showing all 3 jobs -->
-![Jenkins Build Pipeline](jenkins-pipe.png)
+![Jenkins Build Pipeline](jenkins%20pipe.png)
 
 ### Jenkins Job Console Output
-<!-- Take a screenshot of any job's console output showing a successful build -->
-![Jenkins Console Output](assets/screenshots/jenkins-console-output.png)
+<!-- Upload your screenshot to repo root and rename to: jenkins-console.png -->
+![Jenkins Console Output](jenkins-console.png)
 
 ### Dynamic EC2 Agent — Proof of Execution
-<!-- Take a screenshot of Jenkins console showing "Running on EC2 (aws-dynamic-agents)" -->
-![Dynamic EC2 Agent](assets/screenshots/ec2-dynamic-agent.png)
+<!-- Upload your screenshot to repo root and rename to: ec2-agent.png -->
+![Dynamic EC2 Agent](ec2-agent.png)
 
 ### SonarQube Dashboard
-<!-- Take a screenshot of your SonarQube project dashboard showing analysis results -->
-![SonarQube Dashboard](assets/screenshots/sonarqube-dashboard.png)
+<!-- Upload your screenshot to repo root and rename to: sonarqube.png -->
+![SonarQube Dashboard](sonarqube.png)
 
 ### GitHub Actions — CI Passing
-<!-- Take a screenshot of your GitHub Actions workflow showing green passing status -->
-![GitHub Actions](assets/screenshots/github-actions-passing.png)
+<!-- Upload your screenshot to repo root and rename to: github-actions.png -->
+![GitHub Actions](github-actions.png)
 
 ### Flask App Running
-<!-- Take a screenshot of the Flask app running in your browser on port 5000 -->
-![Flask App](assets/screenshots/flask-app-running.png)
+<!-- Upload your screenshot to repo root and rename to: flask-app.png -->
+![Flask App](flask-app.png)
 
-> **To add your screenshots:**
-> 1. Create a folder `assets/screenshots/` in this repo
-> 2. Upload each screenshot with the exact filename shown above
-> 3. Images will automatically render here on GitHub
+> **To add remaining screenshots:** Upload each image directly to the repo root with the exact filename shown above — same way you uploaded `jenkins pipe.png` and `pipeline.png`.
 
 ---
 
