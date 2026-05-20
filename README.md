@@ -383,7 +383,7 @@ Built while completing the full **GeeksForGeeks DevOps Course**. Each tool was l
 
 ### Jenkins Build Pipeline View
 <!-- Take a screenshot of your Jenkins Build Pipeline Plugin view showing all 3 jobs -->
-![Jenkins Build Pipeline](jenkins pipe.png)
+![Jenkins Build Pipeline](jenkins-pipe.png)
 
 ### Jenkins Job Console Output
 <!-- Take a screenshot of any job's console output showing a successful build -->
