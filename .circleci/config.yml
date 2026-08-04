@@ -7,11 +7,21 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          keys:
+            - v1-python-deps-{{ checksum "requirements.txt" }}
+            - v1-python-deps-
+
       - run:
           name: Install Dependencies
           command: |
             pip install -r requirements.txt
             pip install pytest flake8
+      
+      - save_cache:
+          key: v1-python-deps-{{ checksum "requirements.txt" }}
+          paths:
+            - ~/.cache/pip
 
       - run:
           name: Run Unit Tests
