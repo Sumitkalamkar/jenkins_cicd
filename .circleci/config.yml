@@ -36,14 +36,19 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t flask-app .
+            docker build -t sumit1418/flask-app:latest .
 
       - run:
           name: Login to Docker hub
           command: |
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
           
-
+      - run: 
+           name: Push Docker Image
+           command: |
+             docker push sumit1418/flask-app:latest
+              
+      
 workflows:
   version: 2
 
