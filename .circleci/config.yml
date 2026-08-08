@@ -38,6 +38,12 @@ jobs:
           command: |
             docker build -t flask-app .
 
+      - run:
+          name: Login to Docker hub
+          command: |
+            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          
+
 workflows:
   version: 2
 
